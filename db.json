@@ -1,16 +1,65 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "Jane Doe",
-      "email": "jane@example.com",
-      "role": "HR"
+      "id": 1,
+      "name": "Alice Smith",
+      "department": "Engineering",
+      "email": "alice@company.com",
+      "role": "admin"
     },
     {
-      "id": "2",
-      "name": "John Smith",
-      "email": "john@example.com",
-      "role": "Employee"
+      "id": 2,
+      "name": "Bob Johnson",
+      "department": "Marketing",
+      "email": "bob@company.com",
+      "role": "employee"
+    },
+    {
+      "id": 3,
+      "name": "Charlie Brown",
+      "department": "Sales",
+      "email": "charlie@company.com",
+      "role": "employee"
+    },
+    {
+      "id": 4,
+      "name": "Dave Lee",
+      "department": "Support",
+      "email": "dave@company.com",
+      "role": "employee"
+    },
+    {
+      "id": 5,
+      "name": "Eve Miller",
+      "department": "Design",
+      "email": "eve@company.com",
+      "role": "employee"
+    }
+  ],
+  "leaveRequests": [
+    {
+      "id": 101,
+      "userId": 4,
+      "employee": "Dave Lee",
+      "reason": "Vacation",
+      "date": "2023-11-20 to 2023-11-25",
+      "status": "Pending"
+    },
+    {
+      "id": 102,
+      "userId": 5,
+      "employee": "Eve Miller",
+      "reason": "Sick Leave",
+      "date": "2023-10-15",
+      "status": "Pending"
+    },
+    {
+      "id": 103,
+      "userId": 2,
+      "employee": "Bob Johnson",
+      "reason": "Personal Day",
+      "date": "2023-12-25",
+      "status": "Denied"
     }
   ]
 }
