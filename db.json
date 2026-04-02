@@ -1,16 +1,127 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "Jane Doe",
-      "email": "jane@example.com",
-      "role": "HR"
+      "id": "2",
+      "name": "Bob Johnson",
+      "department": "Marketing",
+      "email": "bob@company.com",
+      "role": "employee"
     },
     {
-      "id": "2",
-      "name": "John Smith",
-      "email": "john@example.com",
-      "role": "Employee"
+      "id": "3",
+      "name": "Charlie Brown",
+      "department": "Sales",
+      "email": "charlie@company.com",
+      "role": "employee"
+    },
+    {
+      "id": "4",
+      "name": "Dave Lee",
+      "department": "Support",
+      "email": "dave@company.com",
+      "role": "employee"
+    },
+    {
+      "name": "Jerry Bumpkin",
+      "department": "Sleeping",
+      "email": "sleep@email.com",
+      "role": "employee",
+      "id": "1BFwtP6TiME",
+      "password": "sleep123",
+      "registered": true,
+      "status": "Active"
+    },
+    {
+      "name": "asdf",
+      "department": "asdf",
+      "email": "asdf",
+      "role": "employee",
+      "id": "Czt0cHpHRQE"
+    },
+    {
+      "name": "Test",
+      "department": "test",
+      "email": "test@email.com",
+      "role": "admin",
+      "id": "MnfDl9FYBiU",
+      "password": "test123",
+      "registered": true,
+      "status": "Active"
     }
-  ]
+  ],
+  "leaveRequests": [
+    {
+      "id": "101",
+      "userId": 4,
+      "employee": "Dave Lee",
+      "reason": "Vacation",
+      "date": "2023-11-20 to 2023-11-25",
+      "status": "Pending"
+    },
+    {
+      "id": "102",
+      "userId": 5,
+      "employee": "Eve Miller",
+      "reason": "Sick Leave",
+      "date": "2023-10-15",
+      "status": "Pending"
+    },
+    {
+      "id": "103",
+      "userId": 2,
+      "employee": "Bob Johnson",
+      "reason": "Personal Day",
+      "date": "2023-12-25",
+      "status": "Denied"
+    },
+    {
+      "userId": "1BFwtP6TiME",
+      "employee": "Jerry Bumpkin",
+      "reason": "Sick",
+      "date": "2026-04-14",
+      "status": "Approved",
+      "id": "eM2vYm83F2U"
+    },
+    {
+      "userId": "1BFwtP6TiME",
+      "employee": "Jerry Bumpkin",
+      "reason": "more leave",
+      "date": "2026-04-26",
+      "status": "Denied",
+      "id": "NZJ2rh86oOk"
+    },
+    {
+      "userId": "4",
+      "employee": "Dave Lee",
+      "reason": "Test String ID",
+      "date": "2023-12-01",
+      "status": "Pending",
+      "id": "tdO1nWQSMjQ"
+    },
+    {
+      "userId": 4,
+      "employee": "Dave Lee",
+      "reason": "Test Integer ID",
+      "date": "2023-12-01",
+      "status": "Pending",
+      "id": "mV3EbU4ncj8"
+    },
+    {
+      "userId": "1BFwtP6TiME",
+      "employee": "Jerry Bumpkin",
+      "reason": "another test",
+      "date": "2026-06-19",
+      "status": "Denied",
+      "id": "9dbxURS5wPc"
+    },
+    {
+      "userId": "1BFwtP6TiME",
+      "employee": "Jerry Bumpkin",
+      "date": "12/12/12 to beans",
+      "reason": "Weird",
+      "status": "Pending",
+      "id": "gQv21tVZYoM"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
