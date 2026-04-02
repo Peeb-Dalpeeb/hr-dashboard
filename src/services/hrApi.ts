@@ -5,10 +5,10 @@ export const hrApi = createApi({
   reducerPath: 'hrApi',
   // fetchBaseQuery is your "Axios replacement" - set your base URL here
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001' }),
-
+  
   // Tags are the "labels" that tell Redux when to auto-refresh the UI
-  tagTypes: ['Users', 'LeaveRequests'],
-
+  tagTypes: ['Users', 'LeaveRequests'], 
+  
   endpoints: (builder) => ({
     // --- USER ENDPOINTS ---
 
@@ -45,6 +45,12 @@ export const hrApi = createApi({
       providesTags: ['LeaveRequests'],
     }),
 
+    // 4b. Get leave requests by user ID
+    getLeaveRequestsByUserId: builder.query<LeaveRequest[], string | number>({
+      query: (userId) => `/leaveRequests?userId=${userId}`,
+      providesTags: ['LeaveRequests'],
+    }),
+
     // 5. Apply for leave (Employee Action)
     applyForLeave: builder.mutation<LeaveRequest, Partial<LeaveRequest>>({
       query: (request) => ({
@@ -57,10 +63,7 @@ export const hrApi = createApi({
 
     // 6. Approve or Deny leave (Admin Action)
     // We use PATCH because we only want to change the 'status' field
-    updateLeaveStatus: builder.mutation<
-      LeaveRequest,
-      { id: number; status: 'Approved' | 'Denied' }
-    >({
+    updateLeaveStatus: builder.mutation<LeaveRequest, { id: number; status: 'Approved' | 'Denied' }>({
       query: ({ id, status }) => ({
         url: `/leaveRequests/${id}`,
         method: 'PATCH',
@@ -72,11 +75,12 @@ export const hrApi = createApi({
 });
 
 // RTK Query generates these hooks automatically based on the endpoint names above
-export const {
-  useGetUsersQuery,
-  useAddUserMutation,
+export const { 
+  useGetUsersQuery, 
+  useAddUserMutation, 
   useDeleteUserMutation,
   useGetLeaveRequestsQuery,
+  useGetLeaveRequestsByUserIdQuery,
   useApplyForLeaveMutation,
-  useUpdateLeaveStatusMutation,
+  useUpdateLeaveStatusMutation 
 } = hrApi;

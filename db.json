@@ -70,6 +70,46 @@
       "reason": "Personal Day",
       "date": "2023-12-25",
       "status": "Denied"
+    },
+    {
+      "userId": "1BFwtP6TiME",
+      "employee": "Jerry Bumpkin",
+      "reason": "Sick",
+      "date": "2026-04-14",
+      "status": "Pending",
+      "id": "eM2vYm83F2U"
+    },
+    {
+      "userId": "1BFwtP6TiME",
+      "employee": "Jerry Bumpkin",
+      "reason": "more leave",
+      "date": "2026-04-26",
+      "status": "Pending",
+      "id": "NZJ2rh86oOk"
+    },
+    {
+      "userId": "4",
+      "employee": "Dave Lee",
+      "reason": "Test String ID",
+      "date": "2023-12-01",
+      "status": "Pending",
+      "id": "tdO1nWQSMjQ"
+    },
+    {
+      "userId": 4,
+      "employee": "Dave Lee",
+      "reason": "Test Integer ID",
+      "date": "2023-12-01",
+      "status": "Pending",
+      "id": "mV3EbU4ncj8"
+    },
+    {
+      "userId": "1BFwtP6TiME",
+      "employee": "Jerry Bumpkin",
+      "reason": "another test",
+      "date": "2026-06-19",
+      "status": "Pending",
+      "id": "9dbxURS5wPc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

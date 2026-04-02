@@ -49,3 +49,45 @@ export async function registerAction(prevState: any, formData: FormData) {
     };
   }
 }
+
+export async function loginAction(prevState: any, formData: FormData) {
+  const email = formData.get('email') as string;
+  const password = formData.get('password') as string;
+
+  try {
+    const response = await fetch('http://localhost:3001/users');
+    if (!response.ok) throw new Error('Database connection failed');
+    
+    const users = await response.json();
+
+    const user = users.find(
+      (u: any) => u.email.toLowerCase() === email.toLowerCase() && u.password === password
+    );
+
+    if (!user) {
+      return { 
+        success: false, 
+        message: "Invalid email or password." 
+      };
+    }
+
+    if (!user.registered) {
+      return {
+        success: false,
+        message: "Your account is not registered. Please register first."
+      };
+    }
+
+    return { 
+      success: true, 
+      message: "Login successful",
+      user 
+    };
+
+  } catch (e) {
+    return { 
+      success: false, 
+      message: "System error: Could not reach the server." 
+    };
+  }
+}
