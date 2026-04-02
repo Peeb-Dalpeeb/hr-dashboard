@@ -1,44 +1,54 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Alice Smith",
-      "department": "Engineering",
-      "email": "alice@company.com",
-      "role": "admin"
-    },
-    {
-      "id": 2,
+      "id": "2",
       "name": "Bob Johnson",
       "department": "Marketing",
       "email": "bob@company.com",
       "role": "employee"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Charlie Brown",
       "department": "Sales",
       "email": "charlie@company.com",
       "role": "employee"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Dave Lee",
       "department": "Support",
       "email": "dave@company.com",
       "role": "employee"
     },
     {
-      "id": 5,
-      "name": "Eve Miller",
-      "department": "Design",
-      "email": "eve@company.com",
-      "role": "employee"
+      "name": "Jerry Bumpkin",
+      "department": "Sleeping",
+      "email": "sleep@email.com",
+      "role": "employee",
+      "id": "1BFwtP6TiME",
+      "password": "sleep123",
+      "registered": true,
+      "status": "Active"
+    },
+    {
+      "name": "asdf",
+      "department": "asdf",
+      "email": "asdf",
+      "role": "employee",
+      "id": "Czt0cHpHRQE"
+    },
+    {
+      "name": "Test",
+      "department": "test",
+      "email": "test@email.com",
+      "role": "admin",
+      "id": "MnfDl9FYBiU"
     }
   ],
   "leaveRequests": [
     {
-      "id": 101,
+      "id": "101",
       "userId": 4,
       "employee": "Dave Lee",
       "reason": "Vacation",
@@ -46,7 +56,7 @@
       "status": "Pending"
     },
     {
-      "id": 102,
+      "id": "102",
       "userId": 5,
       "employee": "Eve Miller",
       "reason": "Sick Leave",
@@ -54,12 +64,13 @@
       "status": "Pending"
     },
     {
-      "id": 103,
+      "id": "103",
       "userId": 2,
       "employee": "Bob Johnson",
       "reason": "Personal Day",
       "date": "2023-12-25",
       "status": "Denied"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
