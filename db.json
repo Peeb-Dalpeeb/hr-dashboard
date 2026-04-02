@@ -76,7 +76,7 @@
       "employee": "Jerry Bumpkin",
       "reason": "Sick",
       "date": "2026-04-14",
-      "status": "Pending",
+      "status": "Approved",
       "id": "eM2vYm83F2U"
     },
     {
@@ -108,8 +108,16 @@
       "employee": "Jerry Bumpkin",
       "reason": "another test",
       "date": "2026-06-19",
-      "status": "Pending",
+      "status": "Denied",
       "id": "9dbxURS5wPc"
+    },
+    {
+      "userId": "1BFwtP6TiME",
+      "employee": "Jerry Bumpkin",
+      "date": "12/12/12 to beans",
+      "reason": "Weird",
+      "status": "Pending",
+      "id": "gQv21tVZYoM"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

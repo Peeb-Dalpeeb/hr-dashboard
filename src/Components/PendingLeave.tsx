@@ -1,7 +1,8 @@
-import { useGetLeaveRequestsQuery } from '../services/hrApi';
+import { useGetLeaveRequestsQuery, useUpdateLeaveStatusMutation } from '../services/hrApi';
 import { FileText, XCircle, CheckCircle } from 'lucide-react';
 
 export default function PendingLeave() {
+  const [updateLeaveStatus] = useUpdateLeaveStatusMutation();
   const { data: leaveRequests, isLoading, error } = useGetLeaveRequestsQuery();
 
   if (isLoading)
@@ -55,11 +56,21 @@ export default function PendingLeave() {
             </div>
 
             <div className="flex items-center justify-between pt-2">
-              <button className="flex items-center justify-center gap-1.5 rounded-lg px-4 py-2 text-sm font-medium text-red-600 transition-colors hover:bg-red-50">
+              <button
+                onClick={() =>
+                  updateLeaveStatus({ id: leaveRequest.id, status: 'Denied' })
+                }
+                className="flex items-center justify-center gap-1.5 rounded-lg px-4 py-2 text-sm font-medium text-red-600 transition-colors hover:bg-red-50"
+              >
                 <XCircle className="h-4 w-4" strokeWidth={2} />
                 Deny
               </button>
-              <button className="flex items-center justify-center gap-1.5 rounded-lg bg-green-600 px-5 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-green-700">
+              <button
+                onClick={() =>
+                  updateLeaveStatus({ id: leaveRequest.id, status: 'Approved' })
+                }
+                className="flex items-center justify-center gap-1.5 rounded-lg bg-green-600 px-5 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-green-700"
+              >
                 <CheckCircle className="h-4 w-4" strokeWidth={2} />
                 Approve
               </button>

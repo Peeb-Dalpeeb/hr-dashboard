@@ -1,6 +1,5 @@
 import { useGetLeaveRequestsByUserIdQuery } from "../services/hrApi";
 import { useSelector } from "react-redux";
-import AddLeaveRequest from "./AddLeaveRequest";
 
 export default function LeaveHistory() {
     const currentUser = useSelector((state: any) => state.auth.currentUser);
@@ -9,11 +8,16 @@ export default function LeaveHistory() {
     });
 
     if (!data || data.length === 0) {
-        return null;
+        return null; // Return null when no data
     }
+
     return (
-        <div className="p-6 bg-slate-50 min-h-screen">
-            <h1 className="text-2xl font-bold text-slate-800 mb-6">Leave History</h1>
+        <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+            <div className="grid grid-cols-3 gap-4 border-b border-slate-100 bg-white/50 px-6 py-4 text-xs font-bold tracking-wider text-slate-500 uppercase">
+                <div>DATE</div>
+                <div>REASON</div>
+                <div className="text-right">STATUS</div>
+            </div>
             
             {isLoading && (
                 <div className="flex items-center justify-center p-8 text-slate-500">
@@ -22,7 +26,7 @@ export default function LeaveHistory() {
             )}
             
             {error && (
-                <div className="p-4 mb-6 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                <div className="p-4 bg-red-50 text-red-700">
                     <p className="font-medium">Error fetching leave history:</p>
                     <p className="text-sm">
                         {'message' in error ? error.message : 
@@ -33,28 +37,28 @@ export default function LeaveHistory() {
             )}
             
             {data && (
-                <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
-                    <ul className="divide-y divide-slate-100">
-                        {data.map((leaveRequest) => (
-                            <li key={leaveRequest.id} className="p-4 hover:bg-slate-50 transition-colors">
-                                <div className="flex justify-between items-center">
-                                    <div>
-                                        <p className="font-semibold text-slate-900">{leaveRequest.employee}</p>
-                                        <p className="text-sm text-slate-500">{leaveRequest.date}</p>
-                                    </div>
-                                    <span className={`px-2 py-1 rounded text-xs font-semibold ${
-                                        leaveRequest.status === 'Approved' ? 'bg-green-100 text-green-700' :
-                                        leaveRequest.status === 'Denied' ? 'bg-red-100 text-red-700' :
-                                        'bg-amber-100 text-amber-700'
-                                    }`}>
-                                        {leaveRequest.status}
-                                    </span>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                <ul className="divide-y divide-slate-100">
+                    {data.map((leaveRequest) => (
+                        <li key={leaveRequest.id} className="grid grid-cols-3 gap-4 items-center px-6 py-4 transition-colors hover:bg-slate-50">
+                            <div className="text-sm font-bold text-slate-700">
+                                {leaveRequest.date}
+                            </div>
+                            <div className="text-sm font-medium text-slate-500">
+                                {leaveRequest.reason}
+                            </div>
+                            <div className="flex justify-end">
+                                <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold ${
+                                    leaveRequest.status === 'Approved' ? 'bg-green-100 text-green-700' :
+                                    leaveRequest.status === 'Denied' ? 'bg-red-100 text-red-700' :
+                                    'bg-[#fdf3c6] text-[#b3851b]' // Custom matching yellow from design
+                                }`}>
+                                    {leaveRequest.status}
+                                </span>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
             )}
         </div>
     );
-}
+}
