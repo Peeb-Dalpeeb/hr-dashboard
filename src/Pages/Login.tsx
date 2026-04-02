@@ -12,7 +12,11 @@ export default function Login() {
   useEffect(() => {
     if (state?.success && state.user) {
       dispatch(setCredentials(state.user));
-      navigate('/dashboard');
+      if (state.user.role === 'admin') {
+        navigate('/admin');
+      } else {
+        navigate('/dashboard');
+      }
     }
   }, [state, navigate, dispatch]);
 

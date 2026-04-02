@@ -1,6 +1,6 @@
 // src/actions.ts
 
-export async function registerAction(prevState: any, formData: FormData) {
+export async function registerAction(_prevState: any, formData: FormData) {
   // 1. Extract the data from the form
   const email = formData.get('email') as string;
   const password = formData.get('password') as string;
@@ -21,6 +21,13 @@ export async function registerAction(prevState: any, formData: FormData) {
       return { 
         success: false, 
         message: "Entry Denied: This email is not in our employee database. Please contact HR to add your email." 
+      };
+    }
+
+    if (existingUser.registered) {
+      return {
+        success: false,
+        message: "This account has already been registered. Please sign in instead."
       };
     }
 
@@ -50,7 +57,7 @@ export async function registerAction(prevState: any, formData: FormData) {
   }
 }
 
-export async function loginAction(prevState: any, formData: FormData) {
+export async function loginAction(_prevState: any, formData: FormData) {
   const email = formData.get('email') as string;
   const password = formData.get('password') as string;
 

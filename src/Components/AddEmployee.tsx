@@ -69,6 +69,19 @@ export default function AddEmployee({ onClose }: AddEmployeeProps) {
               className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-slate-400 transition"
             />
           </div>
+          <div>
+            <label className="block text-sm font-semibold text-slate-700 mb-1.5">Role</label>
+            <select
+              name="role"
+              required
+              defaultValue=""
+              className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 bg-white transition"
+            >
+              <option value="" disabled hidden>Select a role...</option>
+              <option value="Employee">Employee</option>
+              <option value="Admin">Admin</option>
+            </select>
+          </div>
         </div>
 
         <div className="flex justify-end gap-3 px-6 py-5 border-t border-slate-100 mt-4 bg-white">

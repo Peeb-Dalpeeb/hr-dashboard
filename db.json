@@ -43,7 +43,10 @@
       "department": "test",
       "email": "test@email.com",
       "role": "admin",
-      "id": "MnfDl9FYBiU"
+      "id": "MnfDl9FYBiU",
+      "password": "test123",
+      "registered": true,
+      "status": "Active"
     }
   ],
   "leaveRequests": [
@@ -84,7 +87,7 @@
       "employee": "Jerry Bumpkin",
       "reason": "more leave",
       "date": "2026-04-26",
-      "status": "Pending",
+      "status": "Denied",
       "id": "NZJ2rh86oOk"
     },
     {

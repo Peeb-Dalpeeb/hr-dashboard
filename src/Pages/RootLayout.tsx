@@ -1,6 +1,16 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logout } from '../store/authSlice';
 
 export default function RootLayout() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate('/login');
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
       <header className="flex h-16 items-center justify-between border-b border-slate-200 bg-white px-8">
@@ -20,7 +30,7 @@ export default function RootLayout() {
           </div>
           <span className="text-xl font-bold text-slate-800 tracking-tight">LuminaHR</span>
         </div>
-        <button className="text-sm font-semibold text-slate-600 hover:text-slate-900">
+        <button className="text-sm font-semibold text-slate-600 hover:text-slate-900" onClick={handleLogout}>
           Logout
         </button>
       </header>
