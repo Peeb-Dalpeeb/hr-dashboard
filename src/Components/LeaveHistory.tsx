@@ -12,6 +12,8 @@ export default function LeaveHistory() {
     }
 
     return (
+        <>
+        <h2 className="mb-4 text-[1.1rem] font-bold text-slate-800">Leave History</h2>  
         <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
             <div className="grid grid-cols-3 gap-4 border-b border-slate-100 bg-white/50 px-6 py-4 text-xs font-bold tracking-wider text-slate-500 uppercase">
                 <div>DATE</div>
@@ -59,6 +61,8 @@ export default function LeaveHistory() {
                     ))}
                 </ul>
             )}
+           
         </div>
+        </>
     );
-}
+}

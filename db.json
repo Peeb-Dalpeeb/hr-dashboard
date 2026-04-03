@@ -53,7 +53,10 @@
       "department": "Biology ",
       "email": "Scott@email.com",
       "role": "employee",
-      "id": "ljBGerJR2LQ"
+      "id": "ljBGerJR2LQ",
+      "password": "scott123",
+      "registered": true,
+      "status": "Active"
     }
   ],
   "leaveRequests": [
@@ -136,6 +139,14 @@
       "reason": "Flu",
       "status": "Pending",
       "id": "NS2XwXTPlWk"
+    },
+    {
+      "userId": "ljBGerJR2LQ",
+      "employee": "Scott D",
+      "date": "12/12/12 to 12/12/12",
+      "reason": "Flu",
+      "status": "Approved",
+      "id": "43dfLR07WgY"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

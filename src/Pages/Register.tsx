@@ -1,9 +1,24 @@
-import { useActionState } from 'react';
+import { useActionState, useEffect } from 'react';
 import { registerAction } from '../actions';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setCredentials } from '../store/authSlice';
 
 export default function RegisterForm() {
   const [state, formAction] = useActionState(registerAction, null);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (state?.success && state.user) {
+      dispatch(setCredentials(state.user));
+      if (state.user.role === 'admin') {
+        navigate('/admin');
+      } else {
+        navigate('/dashboard');
+      }
+    }
+  }, [state, navigate, dispatch]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 py-8">

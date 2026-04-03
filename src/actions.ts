@@ -43,10 +43,13 @@ export async function registerAction(_prevState: any, formData: FormData) {
     });
 
     if (!updateResponse.ok) throw new Error('Failed to update user');
+    
+    const updatedUser = await updateResponse.json();
 
     return { 
       success: true, 
-      message: "Account verified! You can now sign in." 
+      message: "Account verified! Logging you in...",
+      user: updatedUser
     };
 
   } catch (e) {
