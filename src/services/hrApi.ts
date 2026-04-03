@@ -29,7 +29,7 @@ export const hrApi = createApi({
     }),
 
     // 3. Delete a user
-    deleteUser: builder.mutation<void, number>({
+    deleteUser: builder.mutation<void, number | string>({
       query: (id) => ({
         url: `/users/${id}`,
         method: 'DELETE',
@@ -63,7 +63,7 @@ export const hrApi = createApi({
 
     // 6. Approve or Deny leave (Admin Action)
     // We use PATCH because we only want to change the 'status' field
-    updateLeaveStatus: builder.mutation<LeaveRequest, { id: number; status: 'Approved' | 'Denied' }>({
+    updateLeaveStatus: builder.mutation<LeaveRequest, { id: number | string; status: 'Approved' | 'Denied' }>({
       query: ({ id, status }) => ({
         url: `/leaveRequests/${id}`,
         method: 'PATCH',
