@@ -121,6 +121,14 @@
       "reason": "Weird",
       "status": "Pending",
       "id": "gQv21tVZYoM"
+    },
+    {
+      "userId": "1BFwtP6TiME",
+      "employee": "Jerry Bumpkin",
+      "date": "12/12/12 to 12/12/12",
+      "reason": "Flu",
+      "status": "Pending",
+      "id": "NS2XwXTPlWk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
