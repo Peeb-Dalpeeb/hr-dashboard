@@ -47,6 +47,13 @@
       "password": "test123",
       "registered": true,
       "status": "Active"
+    },
+    {
+      "name": "Scott D",
+      "department": "Biology ",
+      "email": "Scott@email.com",
+      "role": "employee",
+      "id": "ljBGerJR2LQ"
     }
   ],
   "leaveRequests": [
